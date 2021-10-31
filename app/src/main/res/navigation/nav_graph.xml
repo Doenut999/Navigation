@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/welcome">
+
+    <fragment
+        android:id="@+id/welcome"
+        android:name="io.peng.navigation.Welcome"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcome_to_stepIn"
+            app:destination="@id/stepIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/stepIn"
+        android:name="io.peng.navigation.StepIn"
+        android:label="fragment_step_in"
+        tools:layout="@layout/fragment_step_in" >
+        <action
+            android:id="@+id/action_stepIn_to_beIn"
+            app:destination="@id/beIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/beIn"
+        android:name="io.peng.navigation.BeIn"
+        android:label="fragment_be_in"
+        tools:layout="@layout/fragment_be_in" >
+        <action
+            android:id="@+id/action_beIn_to_stepOut"
+            app:destination="@id/stepOut"
+            app:popUpTo="@id/stepIn"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/stepOut"
+        android:name="io.peng.navigation.StepOut"
+        android:label="fragment_step_out"
+        tools:layout="@layout/fragment_step_out" >
+        <argument
+            android:name="questions"
+            app:argType="integer" />
+        <argument
+            android:name="correct"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/final1"
+        android:name="io.peng.navigation.Final"
+        android:label="fragment_final"
+        tools:layout="@layout/fragment_final" />
+</navigation>
